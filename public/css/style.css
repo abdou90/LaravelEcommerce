@@ -1,0 +1,4 @@
+ul.list-qty{
+    list-style:none;
+    display: flex;
+}
