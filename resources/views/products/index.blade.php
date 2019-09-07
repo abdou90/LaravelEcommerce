@@ -12,8 +12,8 @@ Index
     <div class="row">
         <div class="col-md-8">
             <div class="row">
-                @foreach($products as $prod)
-                <div class="col-md-4 mb-3">
+                @forelse($products as $prod)
+                <div class="col-md-12">
                     <div class="card bg-light text-center">
                         <div class="card-body">
                             <h3 class="card-title bg-primary">{{ $prod->titre }}</h3>
@@ -38,22 +38,20 @@ Index
                         </div>
                     </div>
                 </div>
-                @endforeach
+
+                @empty
+
+                <div class="alert alert-alert" role="alert">
+                There is no products
+                </div>
+
+                @endforelse
+
+
+
             </div>
         </div>
-        <div class="col-md-4">
-        <div class="card mt-4">
-            <div class="card-body">
-                <h3 class="card-title text-center">Categorie</h3>
-                <hr class="w-25">
-                <ul class="list-group text-center">
-                    @foreach($categories as $category)
-                    <li class="list-group-item "><a href="">{{ $category->name }}</a></li>
-                    @endforeach
-                </ul>
-            </div>
-        </div>
-        </div>
+
     </div>
 </div>
     

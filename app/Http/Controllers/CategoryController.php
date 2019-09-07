@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\{
+    Product,
+    Category
+};
 class CategoryController extends Controller
 {
     /**
@@ -46,7 +49,11 @@ class CategoryController extends Controller
     public function show($id)
     {
         $category = Category::findOrFail($id);
-        return view('', compact('category'));
+
+        $products = $category->products;
+
+        //dd($products);
+        return view('products.index', compact('products'));
     }
 
     /**

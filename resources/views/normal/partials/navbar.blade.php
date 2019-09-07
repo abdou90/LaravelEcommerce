@@ -13,7 +13,7 @@
                     <ul class="navbar-nav mr-auto">
 
                     @foreach( $categories as $category)
-                    <li class="list-group-item active"><a class="nav-link" href="#">{{ $category->name }}</a></li>
+                    <li class="list-group-item active"><a class="nav-link" href="{{ route('categories.show', $category->id )}}">{{ $category->name }}</a></li>
                     @endforeach
 
                     </ul>
@@ -35,6 +35,8 @@
                 </span>
             </div>
         </form>
+
+        <ul class="navbar-nav ml-auto"></ul>
 
 
                 </div>

@@ -19,7 +19,11 @@ class CreateProducts extends Migration
             $table->integer('prix');
             $table->string('description');
             $table->string('photo');
+            $table->bigInteger('category_id')->unsigned();
+            $table->foreign('category_id')->references('id')->on('categories');
+            
             $table->timestamps();
+            $table->datetime('deleted_at')->nullable();
         });
     }
 
