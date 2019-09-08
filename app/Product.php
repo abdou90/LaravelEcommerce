@@ -13,7 +13,7 @@ class Product extends Model
     protected $dates = ['deleted_at'];
 
 
-    protected $fillable = ['titre', 'prix', 'description', 'category_id'];
+    protected $fillable = ['titre', 'photo', 'prix', 'description', 'category_id'];
 
     public function category(){
 

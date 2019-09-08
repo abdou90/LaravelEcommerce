@@ -177,6 +177,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
        // Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
+
+       	
+        App\Providers\KarimServiceProvider::class,
     ],
 
     /*
@@ -229,6 +232,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         //'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+
+        'KarimIMG' => App\Helpers\Karim\Img::class,
     ],
 
 ];

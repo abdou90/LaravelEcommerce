@@ -9,6 +9,8 @@ use App\{
     Product
 };
 
+use KarimIMG;
+
 class DashboardProductController extends Controller
 {
 
@@ -33,19 +35,25 @@ class DashboardProductController extends Controller
 
     public function add(){
 
-        return view('categories.dashboard.add' );
+        return view('products.dashboard.add' );
 
     }
     public function store(Request $request){
 
         //dd( $request->name );
 
-        $category = Category::create([
-            'name' => $request->name
+        $product = Product::create([
+            'titre' => $request->titre,
+            'prix' => $request->prix,
+            'description' => $request->description,
+            'photo' => 'none',
+            'category_id' => $request->category_id ,
         ]);
 
+        $product = KarimIMG::store($request, $product);
 
-        return redirect()->route('dashboard.categories.index', $category->id );
+
+        return redirect()->route('dashboard.products.show', $product->id );
 
     }
 
@@ -57,49 +65,32 @@ class DashboardProductController extends Controller
 
     }
 
-    public function show(Category $category){
+    public function show(Product $product){
 
-        return view('categories.dashboard.show', compact('category') );
-
-    }
-
-    public function update(Request $request, Category $category){
-
-
-        if(  $category->id != 1   ){
-
-            $category->name = $request->name;
-
-            $category->save();
-    
-    
-            return redirect()->route('dashboard.categories.index', $category->id );
-
-        }else{
-
-            $message = "The UNCATEGORIZED category cant be updated";
-
-
-            return view('admin.pages.message', compact('message') );
-        }
-
-
+        return view('products.dashboard.show', compact('product') );
 
     }
 
-    public function edit(Category $category){
+    public function update(Request $request, Product $product){
 
-        if(  $category->id != 1   ){
+        $product->titre = $request->titre;
+        $product->prix = $request->prix;
+        $product->description = $request->description;
+        $product->category_id = $request->category_id;
 
-            return view('categories.dashboard.edit', compact('category') );
+        $product->save();
 
-        }else{
-
-            $message = "The UNCATEGORIZED category cant be edited";
+        $product = KarimIMG::update($request, $product);
 
 
-            return view('admin.pages.message', compact('message') );
-        }
+        return redirect()->route('dashboard.products.show', $product->id );
+
+    }
+
+    public function edit(Product $product){
+
+
+        return view('products.dashboard.edit', compact('product') );
 
         
 

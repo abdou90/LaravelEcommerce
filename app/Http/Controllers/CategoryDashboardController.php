@@ -37,7 +37,7 @@ class CategoryDashboardController extends Controller
         ]);
 
 
-        return redirect()->route('dashboard.categories.index', $category->id );
+        return redirect()->route('dashboard.categories.show', $category->id );
 
     }
 
@@ -65,7 +65,7 @@ class CategoryDashboardController extends Controller
             $category->save();
     
     
-            return redirect()->route('dashboard.categories.index', $category->id );
+            return redirect()->route('dashboard.categories.show', $category->id );
 
         }else{
 
