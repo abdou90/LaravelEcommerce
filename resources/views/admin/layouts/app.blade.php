@@ -32,7 +32,7 @@
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-            <h1 class="h2">Dashboard</h1>
+            <h1 class="h2">Dashboard | @yield('title')</h1>
             {{-- 
             <div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group mr-2">
@@ -51,140 +51,7 @@
           --}}
 
 
-          @if( Auth::user()->is_admin )
-          <h2>Latest 5 Admins</h2>
-          <div class="table-responsive">
-            <table class="table table-striped table-sm">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Email</th>
-
-                </tr>
-              </thead>
-              <tbody>
-              @forelse($admins as $i => $admin)
-                <tr>
-                
-                  <td>{{ $i }}</td>
-                  <td>{{ $admin->email }}</td>
-
-                
-                </tr>
-                @empty
-
-                <div class="alert alert-warning" role="alert">
-                There is no admins for Now !
-                </div>
-            @endforelse
-
-
-              </tbody>
-            </table>
-          </div>
-
-          @endif
-
-
-          <h2>Latest 5 Users</h2>
-          <div class="table-responsive">
-            <table class="table table-striped table-sm">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Email</th>
-
-                </tr>
-              </thead>
-              <tbody>
-              @forelse($users as $i => $user)
-                <tr>
-                
-                  <td>{{ $i }}</td>
-                  <td>{{ $user->email }}</td>
-
-                
-                </tr>
-                @empty
-
-                <div class="alert alert-warning" role="alert">
-                There is no user for Now !
-                </div>
-            @endforelse
-
-
-              </tbody>
-            </table>
-          </div>
-
-
-
-          <h2>Latest 5 Categories</h2>
-          <div class="table-responsive">
-            <table class="table table-striped table-sm">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Title</th>
-
-                </tr>
-              </thead>
-              <tbody>
-              @forelse($categories as $i => $category)
-                <tr>
-                
-                  <td>{{ $i }}</td>
-                  <td>{{ $category->name }}</td>
-
-                
-                </tr>
-                @empty
-
-                <div class="alert alert-warning" role="alert">
-                There is no category for Now !
-                </div>
-            @endforelse
-
-
-              </tbody>
-            </table>
-          </div>
-
-
-
-          <h2>Latest 5 Products</h2>
-          <div class="table-responsive">
-            <table class="table table-striped table-sm">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Title</th>
-
-                </tr>
-              </thead>
-              <tbody>
-              @forelse($products as $i => $product)
-                <tr>
-                
-                  <td>{{ $i }}</td>
-                  <td>{{ $product->titre }}</td>
-
-                
-                </tr>
-
-                @empty
-
-                <div class="alert alert-warning" role="alert">
-                There is no product for Now !
-                </div>
-            @endforelse
-
-
-              </tbody>
-            </table>
-          </div>
-
-
+                @yield('content')
 
 
         </main>
@@ -202,7 +69,7 @@
     <!-- Icons -->
     <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
     <script>
-      feather.replace()
+      feather.replace();
     </script>
 
 

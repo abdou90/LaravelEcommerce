@@ -15,6 +15,8 @@ class CategorySeeder extends Seeder
         //     $user->posts()->save(factory(Category::class)->make());
         // });
 
+        Category::create(['name' => 'Uncategorized']);
+
         $categories = factory(Category::class, 3)->create();
     }
 }

@@ -16,7 +16,7 @@ Route::get('/checkout','checKoutController@index')->name('cart.checkout');
 Route::post('charge-payment','checKoutController@chargepayment')->name('charge.payment');
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+
 
 
 
@@ -51,12 +51,25 @@ Route::group(['prefix' => ''], function(){
 
 Route::group(['prefix' => '',  'middleware' => 'auth'], function(){
 
-
+    Route::get('/home', 'HomeController@index')->name('home');
 
 });
 
 
+
+
 Auth::routes();
+
+Route::group(['prefix' => 'dashboard',  'middleware' => 'auth'], function(){
+
+    Route::get('categories/add','CategoryDashboardController@add')->name('dashboard.categories.add');
+    Route::post('categories/store','CategoryDashboardController@store')->name('dashboard.categories.store');
+    Route::get('categories','CategoryDashboardController@index')->name('dashboard.categories.index');
+    Route::get('categories/{category}','CategoryDashboardController@show')->name('dashboard.categories.show');
+    Route::get('categories/{category}/edit','CategoryDashboardController@edit')->name('dashboard.categories.edit');
+    Route::post('categories/{category}/update','CategoryDashboardController@put')->name('dashboard.categories.udpate');
+    Route::post('categories/{category}/delete','CategoryDashboardController@delete')->name('dashboard.categories.delete');
+});
 
 
 Route::group(['prefix' => 'admin',  'middleware' => 'auth'], function(){

@@ -2,15 +2,15 @@
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" href="#">
+                <a class="nav-link active" href="{{ route('home') }}">
                   <span data-feather="home"></span>
                   Dashboard <span class="sr-only">(current)</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file"></span>
-                  Orders
+                <a class="nav-link" href="{{ route('dashboard.categories.index')}}">
+                  <span data-feather="package"></span>
+                  Categories
                 </a>
               </li>
               <li class="nav-item">
@@ -25,20 +25,21 @@
                   Customers
                 </a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="nav-link" href="#">
                   <span data-feather="bar-chart-2"></span>
                   Reports
                 </a>
-              </li>
+              </li> -->
               <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="layers"></span>
-                  Integrations
+                <a class="nav-link" href="{{ route('store.index') }}">
+                  <span data-feather="skip-back"></span>
+                  Back to store
                 </a>
               </li>
-            </ul>
 
+            </ul>
+<!-- 
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
               <span>Saved reports</span>
               <a class="d-flex align-items-center text-muted" href="#">
@@ -64,12 +65,7 @@
                   Social engagement
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('store.index') }}">
-                  <span data-feather="skip-back"></span>
-                  Back to store
-                </a>
-              </li>
-            </ul>
+              
+            </ul> -->
           </div>
         </nav>
