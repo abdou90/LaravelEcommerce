@@ -14,7 +14,7 @@
        
       </ul>
 
-      <form class="form-inline mt-2 mt-md-0" action="{{ route('posts.search') }}" method="POST" role="search">
+      <form class="form-inline mt-2 mt-md-0" action="{{ route('products.search') }}" method="POST" role="search">
             {{ csrf_field() }}
             <div class="input-group" style="text-align:center">
             <input class="form-control mr-sm-2" type="text" name="q"

@@ -71,6 +71,21 @@ class DashboardProductController extends Controller
 
     }
 
+    public function search(Request $request)
+    {
+        $q= $request->input('q');
+
+        if($q != ""){
+            $products = Product::where('titre', 'like', '%' . $q . '%')->paginate(20);
+
+            return view('products.dashboard.index',compact('products') );
+            
+        }else{
+            return back();
+        }
+
+    }
+
     public function update(Request $request, Product $product){
 
         $product->titre = $request->titre;
@@ -97,32 +112,13 @@ class DashboardProductController extends Controller
     }
 
 
-    public function delete(Category $category){
+    public function delete(Product $product){
 
-        //dd( $category);
+        $product->delete();
 
-        if(  $category->id != 1   ){
-
-            foreach( $category->products as $product  ){
-
-                $product->category_id = 1;
-                $product->save();
-
-            }
-
-            $category->delete();
-
-            return back();
-
-        }else{
-
-            $message = "The UNCATEGORIZED category cant be deleted";
+        return back();
 
 
-            return view('admin.pages.message', compact('message') );
-        }
-
-        
 
     }
 

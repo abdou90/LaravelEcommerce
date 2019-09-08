@@ -2,13 +2,13 @@
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      @foreach($products as $i => $product)
+      @foreach($carousels as $i => $product)
         <li data-target="#myCarousel" data-slide-to="{{ $i }}"></li>
       @endforeach
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
+        <img class="bd-placeholder-img" src="{{ asset('images/Application/background.jpg')}}" width="100%" height="100%"/>
         <div class="container">
           <div class="carousel-caption text-left">
             <h1>Welcome to the Store.</h1>
@@ -17,16 +17,20 @@
           </div>
         </div>
       </div>
-      @foreach($products as $i => $product)
+
+
+      @foreach($carousels as $i => $product)
 
 
         <div class="carousel-item">
-            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
+        <img class="bd-placeholder-img" src="{{ asset('images/Application/background.jpg')}}" width="100%" height="100%"/>
             <div class="container">
             <div class="carousel-caption">
-                <h1>Another example headline.</h1>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+            <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="{{ asset( KarimIMG::noImg( $product->photo )  ) }}" />
+
+                <h1>{{ $product->titre }}</h1>
+                <p>{{ $product->description }}</p>
+                <p><a class="btn btn-lg btn-primary" href="{{ route('products.show', $product->id) }}" role="button">Take a look</a></p>
             </div>
             </div>
         </div>

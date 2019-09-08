@@ -28,8 +28,8 @@ Route::group(['prefix' => ''], function(){
 
     //Products
     Route::get('/product','ProductController@index')->name('products.index');
-    Route::post('/search','ProductController@search')->name('posts.search');
-    Route::get('product/{id}','ProductController@show');
+    Route::post('/search','ProductController@search')->name('products.search');
+    Route::get('product/{id}','ProductController@show')->name('products.show');
 
     //Categories
     Route::get('category/{id}','CategoryController@show')->name('categories.show');
@@ -73,6 +73,8 @@ Route::group(['prefix' => 'dashboard',  'middleware' => 'auth'], function(){
     Route::post('categories/{category}/delete','CategoryDashboardController@delete')->name('dashboard.categories.delete');
 
     //PRODUCTS
+
+    Route::post('products/search','DashboardProductController@search')->name('dashboard.products.search');
 
     Route::get('products/add','DashboardProductController@add')->name('dashboard.products.add');
     Route::post('products/store','DashboardProductController@store')->name('dashboard.products.store');

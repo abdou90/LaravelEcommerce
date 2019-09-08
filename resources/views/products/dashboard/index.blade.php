@@ -12,9 +12,6 @@ Products
 @section('content')
 
 
-
-
-
           <h2>All Products  <a class="btn btn-md btn-primary float-right" href="{{ route('dashboard.products.add') }}"><i data-feather="plus"></i></a></h2>
           <div class="table-responsive">
             <table class="table table-striped table-sm">
@@ -55,7 +52,7 @@ Products
                 
                   <td>{{ $i+1 }}</td>
                   <td>{{ $product->titre }}</td>
-                  <td>{{ $product->prix }}</td>
+                  <td>{{ $product->prix }} $</td>
                   <td><a href="{{ route('dashboard.categories.show', $product->category->id) }}">{{ $product->category->titre }}</a></td>
                   <td><a href="{{ route('dashboard.products.show', $product->id) }}"><i data-feather="eye"></i></a></td>
                   <td><a href="{{ route('dashboard.products.edit', $product->id) }}"><i data-feather="edit-3"></i></a></td>
@@ -72,7 +69,7 @@ Products
                 @empty
 
                 <div class="alert alert-warning" role="alert">
-                There is no category for Now !
+                There is no Product for Now !
                 </div>
             @endforelse
 
