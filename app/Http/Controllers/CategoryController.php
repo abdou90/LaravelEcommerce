@@ -50,10 +50,10 @@ class CategoryController extends Controller
     {
         $category = Category::findOrFail($id);
 
-        $products = $category->products;
+        $products = $category->products()->paginate(12);
 
         //dd($products);
-        return view('products.index', compact('products'));
+        return view('welcome', compact('products'));
     }
 
     /**

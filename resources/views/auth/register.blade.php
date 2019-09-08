@@ -1,7 +1,15 @@
-@extends('layouts.app')
+@extends('normal.layouts.app')
+
+@section('title')
+Register
+@endsection
 
 @section('content')
-<div class="container">
+
+    <div class="alert alert-alert" role="alert">
+        Registering is FORBIDDEN ! SORRY ! TALK to admin to register you at <a href="https://www.facebook.com/profile.php?id=100011904166730">KARIM</a>
+    </div>
+{{-- 
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -73,5 +81,5 @@
             </div>
         </div>
     </div>
-</div>
+    --}}
 @endsection

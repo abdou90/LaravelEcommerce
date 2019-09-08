@@ -140,13 +140,18 @@ class ProductController extends Controller
     public function search(Request $request)
     {
         $q= $request->input('q');
+
         if($q != ""){
-            $products = Product::where('titre', 'like', '%' . $q . '%')->get();
-            if (count($products)>0){
-                return view('products.index',['products' => $products]);
-            }
+            $products = Product::where('titre', 'like', '%' . $q . '%')->paginate(12);
+
+            
+
+            return view('welcome',compact('products') );
+            
+        }else{
+            return back();
         }
-        return view('products.index');
+
     }
     public function adminPage()
     {

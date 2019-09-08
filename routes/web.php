@@ -24,7 +24,7 @@ Route::group(['prefix' => ''], function(){
 
     //APPLICATION
 
-    Route::get('/','ProductController@index')->name('store.index');
+    Route::get('/','IndexController@index')->name('store.index');
 
     //Products
     Route::get('/product','ProductController@index')->name('products.index');
