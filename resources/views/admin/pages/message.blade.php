@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('title')
-Adding Category
+Message
 @endsection
 
 @section('styles')
@@ -10,9 +10,6 @@ Adding Category
 @endsection
 
 @section('content')
-
-
-
 
 
           <h2>MESSAGE </h2>

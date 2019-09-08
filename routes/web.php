@@ -62,6 +62,8 @@ Auth::routes();
 
 Route::group(['prefix' => 'dashboard',  'middleware' => 'auth'], function(){
 
+
+    //CATEGORIES
     Route::get('categories/add','CategoryDashboardController@add')->name('dashboard.categories.add');
     Route::post('categories/store','CategoryDashboardController@store')->name('dashboard.categories.store');
     Route::get('categories','CategoryDashboardController@index')->name('dashboard.categories.index');
@@ -69,6 +71,18 @@ Route::group(['prefix' => 'dashboard',  'middleware' => 'auth'], function(){
     Route::get('categories/{category}/edit','CategoryDashboardController@edit')->name('dashboard.categories.edit');
     Route::post('categories/{category}/update','CategoryDashboardController@put')->name('dashboard.categories.udpate');
     Route::post('categories/{category}/delete','CategoryDashboardController@delete')->name('dashboard.categories.delete');
+
+    //PRODUCTS
+
+    Route::get('products/add','DashboardProductController@add')->name('dashboard.products.add');
+    Route::post('products/store','DashboardProductController@store')->name('dashboard.products.store');
+    Route::get('products','DashboardProductController@index')->name('dashboard.products.index');
+    Route::get('products/{product}','DashboardProductController@show')->name('dashboard.products.show');
+    Route::get('products/{product}/edit','DashboardProductController@edit')->name('dashboard.products.edit');
+    Route::post('products/{product}/update','DashboardProductController@put')->name('dashboard.products.udpate');
+    Route::post('products/{product}/delete','DashboardProductController@delete')->name('dashboard.products.delete');
+
+
 });
 
 

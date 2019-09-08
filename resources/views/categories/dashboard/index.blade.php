@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('title')
-Index
+Category
 @endsection
 
 @section('styles')
@@ -60,7 +60,9 @@ Index
 
 
 
-
+            <div class="row">
+                {{ $categories->links() }}
+            </div>
 
 
 
