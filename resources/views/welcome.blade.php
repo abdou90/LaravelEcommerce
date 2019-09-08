@@ -49,6 +49,10 @@ Index
 
 
 
+    {{ $products->links() }}
+
+
+
 
 
 @endsection
