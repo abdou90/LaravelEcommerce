@@ -57,7 +57,7 @@ class ProductController extends Controller
     }
     public function show($id) {
         $product = Product::find($id);
-        return view('products.show',['product' => $product]);
+        return view('products.normal.show',['product' => $product]);
     }
     
     public function addToCart(Request $request ,$id) {

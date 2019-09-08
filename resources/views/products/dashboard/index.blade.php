@@ -53,7 +53,7 @@ Products
                   <td>{{ $i+1 }}</td>
                   <td>{{ $product->titre }}</td>
                   <td>{{ $product->prix }} $</td>
-                  <td><a href="{{ route('dashboard.categories.show', $product->category->id) }}">{{ $product->category->titre }}</a></td>
+                  <td><a href="{{ route('dashboard.categories.show', $product->category->id) }}">{{ $product->category->name }}</a></td>
                   <td><a href="{{ route('dashboard.products.show', $product->id) }}"><i data-feather="eye"></i></a></td>
                   <td><a href="{{ route('dashboard.products.edit', $product->id) }}"><i data-feather="edit-3"></i></a></td>
                   <td>
