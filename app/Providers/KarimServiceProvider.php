@@ -14,6 +14,7 @@ class KarimServiceProvider extends ServiceProvider
     public function register()
     {
         require_once app_path() . '/Helpers/Karim/Image.php';
+        require_once app_path() . '/Helpers/Karim/Checkout.php';
     }
 
     /**

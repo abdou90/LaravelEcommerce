@@ -234,6 +234,7 @@ return [
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
         'KarimIMG' => App\Helpers\Karim\Img::class,
+        'KarimCheckout' => App\Helpers\Karim\Checkout::class,
     ],
 
 ];

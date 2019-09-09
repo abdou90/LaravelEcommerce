@@ -8,7 +8,7 @@
 
 
 <h2>Product : {{ $product->titre }}</h2>
-<p><a class="btn btn-success btn-lg" href="#">Purchase</a></p>
+
 
 
 
@@ -20,6 +20,20 @@
   <p class="card-text"><a href="{{ route('categories.show', $product->category->id )}}" ><small class="text-muted">Categry : {{ $product->category->name }}</small></a></p>
 </div>
 </div>
+
+<form action="{{ route('shopingcart.add', $product->id ) }}" method="POST">
+
+@csrf
+
+    <div class="form-group">
+    <label for="exampleInputEmail1">Items</label>
+    <input type="number" name="howmany" min="1" placeholder="1" value="1" class="form-control" id="how_many">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Add to cart</button>
+
+</form>
+
 
 
 @endsection

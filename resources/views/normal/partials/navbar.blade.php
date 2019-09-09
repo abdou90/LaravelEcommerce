@@ -1,5 +1,7 @@
+
+
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="#">{{ config('app.name') }}</a>
+    <a class="navbar-brand" href="{{ route('store.index') }}">{{ config('app.name') }}</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -11,6 +13,38 @@
           <a class="nav-link" href="{{ route('categories.show', $category->id)}}">{{ $category->name}} <span class="sr-only">(current)</span></a>
         </li>
         @endforeach
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Shoping Cart
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{{ route('shopingcart.show') }}"><i data-feather="shopping-bag"></i>Shoping Cart</a>
+
+
+
+          @foreach( session()->get('shopping_cart')['products'] as $product_id => $quantity )
+
+          @php
+
+            $selected_product = KarimCheckout::getProductFromId( $product_id );
+
+          @php
+
+          
+          <a class="dropdown-item" href="#"> Product  : {{ $selected_product->titre }} [ {{ $quantity['quantity'] }} * {{$selected_product->price }} ] {{ (float)$quantity['quantity'] * $selected_product->price }} </a>
+          @endforeach
+
+          <a class="dropdown-item" href="#"><i data-feather="dollar-sign"></i>Total is {{ session()->get('shopping_cart')['total'] }}</a>
+
+          <div class="dropdown-divider"></div>
+          <form action="{{ route('shopingcart.cancelAll') }}" method="POST">
+              @csrf
+          <button class="dropdown-item"><i data-feather="trash"></i> Delete all</button>
+          </form>
+        </div>
+      </li>
+
        
       </ul>
 

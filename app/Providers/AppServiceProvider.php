@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Category;
+use Session;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -24,6 +25,15 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         $categories = Category::all();
+
+        $shoping_cart = [];
+
+        $shoping_cart['products'] = [];
+        $shoping_cart['total'] = 0;
+
+        Session::put('shopping_cart', $shoping_cart);
+
         view()->share('categories', $categories );
+
     }
 }
