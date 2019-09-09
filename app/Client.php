@@ -31,7 +31,7 @@ class Client extends Model
     public function command()
     {
         
-        return $this->belongsTo('App\Commande');
+        return $this->belongsTo('App\Commande', 'commande_id');
                     
     }
 

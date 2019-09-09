@@ -11,11 +11,11 @@ class CommandDashboardController extends Controller
 
         $commands = Commande::paginate(20);
 
-        
+
         return view('commands.index', compact('commands'));
     }
 
-    public function show(Command $command){
+    public function show(Commande $command){
 
         return view('commands.show', compact('command') );
     }

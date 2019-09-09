@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('title')
-Index
+Command {{ $command->id }}
 @endsection
 
 @section('styles')
@@ -15,7 +15,7 @@ Index
 
 
 
-          <h2>Category : {{ $category->name }}</h2>
+          <h2>Command : {{ $command->id }}</h2>
           <div class="table-responsive">
             <table class="table table-striped table-sm">
               <thead>
@@ -47,7 +47,7 @@ Index
               </thead>
               <tbody>
 
-              @forelse($category->products as $i => $product)
+              @forelse($command->products as $i => $product)
                 <tr>
                 
                   <td>{{ $i+1 }}</td>
@@ -56,6 +56,7 @@ Index
 
                   
                   <td>{{ str_limit( $product->description , 50 ) }} ...</td>
+
                   <td><a href="{{ route('dashboard.products.show', $product->id) }}"><i data-feather="eye"></i></a></td>
                   <td><a href="{{ route('dashboard.products.edit', $product->id) }}"><i data-feather="edit-3"></i></a></td>
                   <td>
@@ -64,6 +65,9 @@ Index
                         <button type="submit" class="btn btn-sm btn-danger"><i data-feather="trash-2"></i></button>
                       </form>
                     </td>
+
+
+
 
 
                 

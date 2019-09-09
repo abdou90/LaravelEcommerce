@@ -39,8 +39,8 @@ Clients
                   <td>{{ $client->complet_name }} $</td>
                   <td>{{ $client->email }} $</td>
                   <td>{{ $client->phone }} $</td>
-                  <td><a href="{{ route('dashboard.commands.show', $client->command->id) }}">{{ $client->command->total }}</a></td>
-                  <td><a href="{{ route('dashboard.clients.show', $client->id) }}">{{ $client->id }}</a></td>
+                  <td><a href="{{ route('dashboard.commands.show', $client->command->id ) }}">{{ $client->command->total }}</a></td>
+                  <td><a href="{{ route('dashboard.clients.show', $client->id) }}"><i data-feather="eye"></i></a></td>
 
                 
                 </tr>
@@ -59,7 +59,7 @@ Clients
 
 
             <div class="row">
-                {{ $commands->links() }}
+                {{ $clients->links() }}
             </div>
 
 
