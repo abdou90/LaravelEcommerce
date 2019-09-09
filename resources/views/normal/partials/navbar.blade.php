@@ -32,7 +32,7 @@
           @php
 
           
-          <a class="dropdown-item" href="#"> Product  : {{ $selected_product->titre }} [ {{ $quantity['quantity'] }} * {{$selected_product->price }} ] {{ (float)$quantity['quantity'] * $selected_product->price }} </a>
+          <a class="dropdown-item" href="#"> Product  : {{ $selected_product->titre }} [ {{ $quantity['quantity'] }} * {{$selected_product->prix }} ] =  {{ (float)$quantity['quantity'] * $selected_product->prix }} </a>
           @endforeach
 
           <a class="dropdown-item" href="#"><i data-feather="dollar-sign"></i>Total is {{ session()->get('shopping_cart')['total'] }}</a>

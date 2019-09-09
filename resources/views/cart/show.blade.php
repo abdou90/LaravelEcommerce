@@ -7,7 +7,9 @@ Cart
 @section('content')
 
 
-<h2>Your Cart</h2>
+<h2>Your Cart </h2>
+
+<p>Total price is  : {{ $shoping_cart['total'] }} $</p>
 
 
 
@@ -130,9 +132,13 @@ Cart
 @if( count($shoping_cart['products']) )
 <div class="row">
 <a href="{{ route('store.index') }}" class="btn btn-primary">Continue Shopping</a>
-<form class="float-right" action="{{ url('valider') }}" method="get">
+
+@if( $shoping_cart['total'] > 0 )
+<form class="" action="{{ route('shopingcart.checkout') }}" method="POST">
+    @csrf
 <button type="submit" class="btn btn-success float-right">Validate all</button>
 </form>
+@endif
 
 
 </div>
@@ -156,7 +162,7 @@ Cart
 
         var parent = $(selector);
 
-        if (   parent.find('.number-product').val() != 1  ) {
+        if (   parent.find('.number-product')[1].val() != 1  ) {
             parent.find('.minus-product').attr('disabled', false);
         }
         

@@ -15,6 +15,9 @@ class CreateCommandes extends Migration
     {
         Schema::create('commandes', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->float('total');
+            
+
             $table->timestamps();
         });
     }

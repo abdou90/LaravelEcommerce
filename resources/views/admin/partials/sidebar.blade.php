@@ -20,9 +20,15 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ route('dashboard.clients.index')}}">
                   <span data-feather="users"></span>
                   Customers
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('dashboard.commands.index')}}">
+                  <span data-feather="paperclip"></span>
+                  Commands
                 </a>
               </li>
               <!-- <li class="nav-item">

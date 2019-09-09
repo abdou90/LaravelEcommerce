@@ -21,7 +21,12 @@ class Product extends Model
 
     }
 
-    public function commandes(){
-        return $this->belongsToMany('App\Commande');
+    public function commandes()
+    {
+        return $this->belongsToMany('App\Commande', 'commande_product')
+
+            ->withPivot('product_count', 'product_catch_price' );
+                    
     }
+
 }

@@ -71,6 +71,9 @@ Route::group(['prefix' => 'cart'], function(){
     Route::post('/add-items2items/{product}', 'ShopingCartController@plus')->name('shopingcart.plus');
     Route::post('/substract-items2items/{product}', 'ShopingCartController@minus')->name('shopingcart.minus');
     Route::post('/cancel-all', 'ShopingCartController@cancelAll')->name('shopingcart.cancelAll');
+    Route::post('/validate', 'ShopingCartController@validateAll')->name('shopingcart.validate');
+    Route::post('/checkout', 'ShopingCartController@checkout')->name('shopingcart.checkout');
+    Route::get('/congrlations', 'ShopingCartController@congrlations')->name('shopingcart.congrlations');
 
 
 });
@@ -88,6 +91,25 @@ Auth::routes();
 
 Route::group(['prefix' => 'dashboard',  'middleware' => 'auth'], function(){
 
+
+    Route::group(['prefix' => 'costumers'], function(){
+
+        //COSTUMERS
+   
+        Route::get('/','ClientDashboardController@index')->name('dashboard.clients.index');
+        Route::get('/{client}','ClientDashboardController@show')->name('dashboard.clients.show');
+    
+    });
+
+    Route::group(['prefix' => 'commands'], function(){
+
+        //COSTUMERS
+   
+        Route::get('/','CommandDashboardController@index')->name('dashboard.commands.index');
+        Route::get('/{command}','CommandDashboardController@show')->name('dashboard.commands.show');
+
+    
+    });
 
     Route::group(['prefix' => 'categories'], function(){
 

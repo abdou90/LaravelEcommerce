@@ -20,13 +20,13 @@ Adding Category
 
           <form method="post" action="{{ route('dashboard.categories.store') }}">
               @csrf
-  <div class="form-group">
-    <label for="name">Name</label>
-    <input type="text" name="name" value="" class="form-control" id="name" placeholder="Name">
-  </div>
-  
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" value="" class="form-control" id="name" placeholder="Name">
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
 
 
 

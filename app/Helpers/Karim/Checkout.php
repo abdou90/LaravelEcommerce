@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 
 use App\Product;
-
+use Session;
 class Checkout {
 
 
